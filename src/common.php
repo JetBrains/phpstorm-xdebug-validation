@@ -151,7 +151,7 @@ class XDebugValidator
     if ($xdebug) {
       $config = validateXdebug();
       $content .= createXmlElement("Debugger", $config);
-      $content .= createXmlElement("XDebug Connection", checkHostAccessibility(array(), $config));
+      $content .= createXmlElement("Xdebug Connection", checkHostAccessibility(array(), $config));
     }
 
     $zend_debug = extension_loaded(ZEND_DEBUGGER);

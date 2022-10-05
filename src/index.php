@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <title>PhpStorm XDebug Validation</title>
+  <title>PhpStorm Xdebug Validation</title>
   <meta name="author" content="name"/>
   <meta name="description" content="description here"/>
   <meta name="keywords" content="keywords,here"/>
@@ -22,7 +22,7 @@
 
     <div class="pl-4">
       <a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
-        XDebug Validation
+        Xdebug Validation
       </a>
     </div>
 
@@ -47,10 +47,10 @@
 
     <!--Title-->
     <div class="font-sans">
-      <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">PhpStorm XDebug Validation Report</h1>
+      <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">PhpStorm Xdebug Validation Report</h1>
     </div>
 
-    <!--PhpStorm XDebug Content-->
+    <!--PhpStorm Xdebug Content-->
     <?php
     require_once "phar://phpstorm_debug_validator.phar/common.php";
     $content = XDebugValidator::run();
@@ -97,9 +97,9 @@
         <div class="px-8">
           <h3 class="font-bold text-gray-900">About</h3>
           <p class="py-4 text-gray-600 text-sm">
-            PhpStorm XDebug Validation Script helps to analyze problems in XDebug configuration. Besides the information shown on this page,
+            PhpStorm Xdebug Validation Script helps to analyze problems in Xdebug configuration. Besides the information shown on this page,
             you can configure PhpStorm to get more deep analysis of your settings.
-            More information can be found in <a class="inline-block text-green-600 no-underline hover:text-green-900 hover:text-underline" href="https://www.jetbrains.com/help/phpstorm/validating-the-configuration-of-the-debugging-engine.html">PhpStorm XDebug Validation Documentation</a>
+            More information can be found in <a class="inline-block text-green-600 no-underline hover:text-green-900 hover:text-underline" href="https://www.jetbrains.com/help/phpstorm/validating-the-configuration-of-the-debugging-engine.html">PhpStorm Xdebug Validation Documentation</a>
           </p>
         </div>
       </div>
