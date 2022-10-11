@@ -15,7 +15,7 @@ copy($srcRoot . "/helpers/phpstorm_index.php", $buildRoot . "/phpstorm_index.php
 
 // Zip phpstorm_debug_validator.phar and helpers
 $zip = new ZipArchive();
-$zip_path= $buildRoot . "/phpstorm_debug_validator.zip";
+$zip_path= $buildRoot . "/phpstorm_xdebug_validator.zip";
 if ($zip->open($zip_path, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE) !== TRUE) {
   die ("An error occurred creating your ZIP file.");
 }
