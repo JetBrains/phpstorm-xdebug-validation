@@ -56,15 +56,15 @@
         $content = XDebugValidator::run();
         $xml = simplexml_load_string($content);
         $simpleXMLElement = $xml->section;
-        foreach ($xml->section as $row){
-        ?>
+        foreach ($xml->section as $row) {
+            ?>
         <h4
             class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-2xl"><?php echo $row->attributes()->section_name; ?></h4>
         <ul>
             <?php
-            foreach ($row->attributes() as $a => $b) {
-                if ($a != "section_name") {
-                    ?>
+                foreach ($row->attributes() as $a => $b) {
+                    if ($a != "section_name") {
+                        ?>
                     <li class="flex items-center pl-6">
                         <svg class="w-4 h-4 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"
                              xmlns="http://www.w3.org/2000/svg">
@@ -75,13 +75,13 @@
                         <?php echo $a, ' &#8594; ', stripslashes($b), "\n"; ?>
                     </li>
                     <?php
+                    }
                 }
-            }
             ?>
             <!--<hr class="border-b-2 border-gray-300 mb-8 mx-4">-->
             <?php
-            }
-            ?>
+        }
+        ?>
         </ul>
 
     </div>
