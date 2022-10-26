@@ -93,23 +93,13 @@ class XDebugValidator
     function checkHostAccessibility(array $config, array $options) {
       $url = version_compare($options["version"], '3.0.0') ? $options["xdebug3_host"] : $options["host"];
       $port = version_compare($options["version"], '3.0.0') ? $options["xdebug3_port"] : $options["port"];
-      $fp = stream_socket_client("tcp://$url:$port", $errno, $errstr, 30);
+      $fp = fsockopen($url, 80, $errno, $errstr, 300);
       if (!$fp) {
         $config["status"] = "FAIL";
-      } else {
-        $config["status"] = "OK";
-        $status_message = '<?xml version="1.0" encoding="iso-8859-1"?>
-<response xmlns="urn:debugger_protocol_v1"  command="phpstorm_validation" transaction_id="24" status="stopping" reason="ok"></response>';
-        fwrite($fp, strlen($status_message)."\0".$status_message."\0");
-        $fread = fread($fp, 5);
-        $config["PhpStorm_status"]  = $fread === "Ready" ? "OK": "FAIL";
-        fclose($fp);
       }
-      return $config;
-    }
-
-    function checkDocker(array $config) {
-      $config["inside_docker"] = file_exists('/.dockerenv') ? 'YES' : 'NO';
+      else {
+        $config["status"] = "OK";
+      }
       return $config;
     }
 
@@ -164,8 +154,6 @@ class XDebugValidator
       $content .= createXmlElement("Xdebug Connection", checkHostAccessibility(array(), $config));
     }
 
-    $content .= createXmlElement("Docker", checkDocker(array()));
-
     $zend_debug = extension_loaded(ZEND_DEBUGGER);
     if ($zend_debug) {
       $config = validateZendDebugger();
@@ -180,9 +168,8 @@ class XDebugValidator
         $element["server_name"] = htmlspecialchars($serverName);
       }
       if (!is_null($remoteAddr)) {
-        $element["client_host"] = htmlspecialchars($remoteAddr);
+        $element["remote_addr"] = htmlspecialchars($remoteAddr);
       }
-      $element['server_OS'] = php_uname('s') . php_uname('r');
       $content .= createXmlElement("Server", $element);
     }
 
