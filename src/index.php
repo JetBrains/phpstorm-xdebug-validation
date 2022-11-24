@@ -13,24 +13,24 @@
 </head>
 
 
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-
-<nav id="header" class="fixed w-full z-10 top-0">
+<body class="bg-gray-100 font-sans leading-normal">
+<div class="h-screen tracking-normal flex flex-col">
+<nav id="header" class="sticky z-10 top-0 flex-none">
 
     <div id="progress" class="h-1 z-20 top-0"
          style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
 
-    <div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
+    <div class="lg:max-w-4xl mx-auto px-4 flex flex-nowrap items-center justify-between mt-0 py-3">
 
-        <div class="pl-4">
+        <div class="pl-4 flex-grow">
             <a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
                 Xdebug Validation
             </a>
         </div>
 
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-100 md:bg-transparent z-20"
+        <div class="lg:items-center lg:w-auto flex mt-2 lg:mt-0 bg-gray-100 md:bg-transparent z-20"
              id="nav-content">
-            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <ul class="list-reset justify-end flex flex-column items-center">
                 <li class="mr-3">
                     <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-3"
                        href="https://github.com/JetBrains/phpstorm-xdebug-validation">GitHub</a>
@@ -45,11 +45,11 @@
 </nav>
 
 <!--Container-->
-<div class="container w-full md:max-w-3xl mx-auto pt-20">
+<div class="container w-full md:max-w-3xl mx-auto py-6 flex-grow">
     <div class="w-full px-4 md:px-6 text text-gray-800 leading-normal" style="font-family:Georgia,serif;">
         <!--Title-->
         <div class="font-sans">
-            <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">PhpStorm Xdebug
+            <h1 class="font-bold font-sans break-normal text-gray-900 pb-2 text-3xl md:text-4xl">PhpStorm Xdebug
                 Validation Report</h1>
         </div>
         <!--PhpStorm Xdebug Content-->
@@ -104,13 +104,14 @@
         </ul>
     </div>
 </div>
-<div class="bg-white-100 text-gray-600 mt-10">
-    <details class="bg-white shadow rounded group w-full" open>
+<footer class="bg-white text-center w-full lg:text-left">
+  <div class="bg-white-100 text-gray-600 lg:max-w-4xl mx-auto px-4 flex">
+    <details class="bg-white rounded group w-full" open>
         <summary class="list-none flex flex-wrap items-center cursor-pointer
     focus-visible:outline-none focus-visible:ring focus-visible:ring-pink-500
     rounded group-open:rounded-b-none group-open:z-[1] relative
     ">
-            <h3 class="flex flex-1 p-5 font-semibold ml-2 md:text-xl">
+            <h3 class="flex flex-1 pl-4 py-3 font-semibold md:text-xl pt-3">
                 <svg class="w-7 h-7 mr-2 shrink-0" fill="currentColor" viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -121,14 +122,14 @@
             </h3>
             <div class="flex w-10 items-center justify-center">
                 <div class="border-8 border-transparent border-l-gray-600
-        group-open:rotate-90 transition-transform origin-left mr-10
+        group-open:rotate-90 transition-transform origin-left pr-4
         "></div>
             </div>
         </summary>
-        <div class="container flex">
-            <div class="flex w-full md:w-1/2 ">
-                <div class="px-8">
-                    <p class="py-4 text-gray-600 text-sm">
+        <div class="flex px-8">
+            <div class="flex w-full md:w-1/2">
+                <div class="">
+                    <p class="text-gray-600 text-sm text-left">
                         PhpStorm Xdebug Validation Script helps to analyze problems in Xdebug configuration. Besides the
                         information shown on this
                         page,
@@ -140,9 +141,9 @@
                     </p>
                 </div>
             </div>
-            <div class="flex w-full md:w-1/2">
-                <div class="px-8">
-                    <ul class="list-reset items-center text-sm px-20">
+            <div class="flex justify-end w-full md:w-1/2">
+                <div class="">
+                    <ul class="list-reset text-sm">
                         <li>
                             <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1"
                                href="https://github.com/JetBrains/phpstorm-xdebug-validation">GitHub</a>
@@ -162,12 +163,12 @@
         </div>
     </details>
 </div>
-<footer class="bg-white text-center w-full lg:text-left">
-    <div class="text-gray-500 text-center p-4" style="background-color: rgba(0, 0, 0, 0);">
+    <div class="text-gray-500 text-center py-3" style="background-color: rgba(0, 0, 0, 0);">
         © 2022 Copyright:
         <a class="text-gray-500" href="https://www.jetbrains.com">JetBrains</a>
     </div>
 </footer>
+</div>
 <script>
     /* Progress bar */
     //Source: https://alligator.io/js/progress-bar-javascript-css-variables/
