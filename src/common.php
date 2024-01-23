@@ -112,7 +112,7 @@ class XDebugValidator
             }
             $fp = stream_socket_client("tcp://$url:$port", $errno, $errstr, 30);
             if (! $fp) {
-                $config["status"] = "FAIL";
+                $config["status"] = "FAIL - {$errno}: {$errstr}";
             } else {
                 $config["status"] = "OK";
                 $status_message = '<?xml version="1.0" encoding="iso-8859-1"?>
