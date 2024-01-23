@@ -103,11 +103,16 @@ class XDebugValidator
          */
         function checkHostAccessibility(array $config, array $options)
         {
-            $url = version_compare($options["version"], '3.0.0') ? $options["xdebug3_host"] : $options["host"];
-            $port = version_compare($options["version"], '3.0.0') ? $options["xdebug3_port"] : $options["port"];
+            if (version_compare($options["version"], "3.0.0", ">=")) {
+                $url = $options["xdebug3_host"];
+                $port = $options["xdebug3_port"];
+            } else {
+                $url = $options["host"];
+                $port = $options["port"];
+            }
             $fp = stream_socket_client("tcp://$url:$port", $errno, $errstr, 30);
             if (! $fp) {
-                $config["status"] = "FAIL";
+                $config["status"] = "FAIL - {$errno}: {$errstr}";
             } else {
                 $config["status"] = "OK";
                 $status_message = '<?xml version="1.0" encoding="iso-8859-1"?>
