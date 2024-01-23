@@ -70,7 +70,7 @@
                         ?>
                     <li class="flex items-center pl-6">
                         <?php
-                            if (stripslashes($b) === "FAIL") { ?>
+                            if (preg_match("^FAIL", stripslashes($b))) { ?>
                             <svg width="20" height="20" viewBox="0 0 20 20"
                                  class="fill-current text-red-500 dark:text-red-400 mr-1.5">
                                 <path
